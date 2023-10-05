@@ -1,0 +1,33 @@
+<app-header></app-header>
+  <div class="container">
+    <div class="row">
+        <div class="card col-md-4 col-sm-6 col-12 mx-5 my-5">
+            <div class="card-body">
+                <form id="login" [formGroup]="loginform" #logform="ngForm" (submit)="login()">
+                <div>
+                <h6>Enter your email</h6>
+                <input type="email" placeholder="email" class="form-control " 
+                name="email" required formControlName="email" [ngClass]="{'is-invalid':issubmit && f.email.errors}" />
+              <p class="text-danger fw-bold" *ngIf="issubmit && f.email.errors">Enter email</p>    
+            </div>
+                <div>
+                    <h6>Enter your password</h6>
+                    <input type="password" placeholder="password" class="form-control" 
+                    name="password" required formControlName="password" [ngClass]="{'is-invalid':issubmit && f.password.errors}" />
+                    <p class="text-danger fw-bold" *ngIf="issubmit && f.password.errors">Enter your password</p>   
+                </div>
+                    <button mat-raised-button color="accent" type="submit" [disabled]="logform.invalid" >Login</button>
+                    <p [ngClass]="clr">{{msg}}</p>
+                    <button mat-raised-button color="primary">Primary</button>
+    <button mat-raised-button color="accent">Accent</button>
+    <button mat-raised-button color="warn">Warn</button>
+                </form>
+                </div>
+
+               
+        </div>
+
+    </div>
+
+  </div>
+<app-footer></app-footer>

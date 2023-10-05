@@ -1,0 +1,80 @@
+<app-header></app-header>
+<div class="container mt-5">
+    <h1 >{{dmsg}}</h1>
+    <table class="table table-bordered  table-hover table-striped table-dark  ">
+        <thead>
+           
+            <tr>
+                <th>SNO</th>
+                <th>FNAME</th>
+                <th>LNAME</th>
+                <th>EMAIL</th>
+                <th>ID</th>
+                <th>PHONE</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of msg ; let i=index">
+                <td>{{i+1}}</td>
+                <td>{{data.user_fname}}</td>
+                <td>{{data.user_lname}}</td>
+                <td>{{data.user_email}}</td>
+                <td>{{data.user_id}}</td>
+                <td>{{data.user_phone}}</td>
+                
+                <td>
+                    <button type="submit" class="btn btn-primary shadow-sm"  data-bs-toggle="modal" data-bs-target="#myModal" (click)="udate(data.user_id)">up</button>
+                    <button type="submit" class="btn btn-primary shadow-sm" (click)="del(data.user_id)">del</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<app-footer></app-footer>
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="bg-danger text-white">Update</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+            <form>
+                <input type="text"id="user_id"class="form-control" placeholder="user_id" [(ngModel)]="student.user_id"  name="user_id" required />
+            <h6>RESITER YOUR NAME:</h6>
+            <input type="text" id="fname"class="form-control"  placeholder="fname" [(ngModel)]="student.fname" name="fname"   class="form-control" required />
+           
+            
+            
+            <h6>RESITER YOUR LNAME:</h6>
+            <input type="text"id="username"[(ngModel)]="student.lname" class="form-control"  placeholder="username" name="username"/>
+          
+          
+            
+            
+            <h6>RESITER YOUR email:</h6>
+            <input type="email"id="email"[(ngModel)]="student.email" class="form-control"  placeholder="email"name="email" />
+          >
+            
+            
+            <h6>RESITER YOUR phonenumber:</h6>
+            <input type="number"id="phone" class="form-control" placeholder="phone"name="phone"[(ngModel)]="student.phone"  class="form-control" required   /><br>
+            
+           
+            <button type="submit"  class="btn btn-danger" (click)="update()">Update</button>
+          <p >{{umsg}}</p>
+           </form>  
+        </div>
+  
+        <!-- Modal footer -->
+        
+      </div>
+    </div>
+  </div>

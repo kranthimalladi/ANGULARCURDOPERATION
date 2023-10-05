@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class="container text-center" >
+    <h1>Enter data </h1>
+
+ <button class=" btn btn-danger" routerLink="/service">goto service products</button>
+</div>
+<div >
+    <table class="table table-bordered  table-hover table-striped table-dark  ">
+        <thead>
+           
+            <tr>
+                <th>SNO</th>
+                <th>NAME</th>
+                <th>IMG</th>
+                <th>timings</th>
+                <th>dueration</th>
+                <th>Fee</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let msg of data  ; let i=index" >
+                <td>{{i+1}}</td>
+                <td>{{msg.name}}</td>
+                <td><img src="assets/images/{{msg.img}} " style="height: 100px;width: 100%;"  /></td>
+                <td>{{ msg.timings}}</td>
+                <td>{{ msg.dueration}}</td>
+                <td>{{ msg.fee}}</td>
+                
+            
+            </tr>
+        </tbody>
+    </table>
+</div>
+<app-footer></app-footer>

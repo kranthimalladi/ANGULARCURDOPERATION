@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class="row">
+        
+        <div class=" card col-md-6 col-sm-12 col-12 mx-5 my-5 shadow-sm">
+            
+            <div class="card-body">
+              <form id="register" #regform="ngForm">
+                
+             <h6>RESITER YOUR NAME:</h6>
+             <input type="text" id="fname" placeholder="fname" name="fname"  [(ngModel)]="student.fname"  class="form-control" #fname="ngModel" required [ngClass]="fname.touched && fname.invalid?'border border-danger':''"/>
+             <p class="text-danger fw-bold" *ngIf="fname.touched && fname.invalid">Enter your name</p>
+             
+             
+             <h6>RESITER YOUR LNAME:</h6>
+             <input type="text"id="username" placeholder="username" name="username" [(ngModel)]="student.username" class="form-control"  #username="ngModel"  required  [ngClass]="username.touched && username.invalid?'border border-danger':''" />
+             <p class="text-danger fw-bold" *ngIf="username.touched && username.invalid">Enter your username</p>
+             
+             <h6>RESITER YOUR password:</h6>
+             <input type="password"id="password" placeholder="password"name="password"[(ngModel)]="student.password"  class="form-control"required  #password="ngModel"  [ngClass]="password.touched && password.invalid?'border border-danger':''" />
+             <p class="text-danger fw-bold" *ngIf="password.touched && password.invalid">Enter your password</p>
+             
+             
+             <h6>RESITER YOUR email:</h6>
+             <input type="email"id="email" placeholder="email"name="email"[(ngModel)]="student.email"  class="form-control"required   #email="ngModel"  [ngClass]="email.touched && email.invalid?'border border-danger':''" />
+             <p class="text-danger fw-bold" *ngIf="email.touched && email.invalid">Enter your email</p>
+             
+             
+             <h6>RESITER YOUR phonenumber:</h6>
+             <input type="number"id="phone" placeholder="phone"name="phone"[(ngModel)]="student.phone"  class="form-control" required  #phone="ngModel"  [ngClass]="phone.touched && phone.invalid?'border border-danger':''"  /><br>
+             <p class="text-danger fw-bold" *ngIf="phone.touched && phone.invalid">Enter your phone</p>
+            
+            
+             <button type="submit" id="button"class="btn btn-primary" [disabled]="regform.invalid" (click)="rec()">Register</button>
+             <p [ngClass]="clr">{{msg}}</p>
+            </form>  
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<app-footer></app-footer>

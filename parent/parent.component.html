@@ -1,0 +1,9 @@
+<app-header></app-header>
+
+<form>
+<input type="text" placeholder="username" class="form-control" (change)="data(text.value)" #text />
+</form>
+
+<app-chlid [frist1]="frist" *ngIf="val"  ></app-chlid>
+<button type="submit" class="btn btn-danger" (click)="stop1()">stop the data </button>
+<app-footer></app-footer>

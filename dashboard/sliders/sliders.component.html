@@ -1,0 +1,97 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+    ADD SLIDERS
+  </button>
+  
+</div>
+  <ng-container>{{dmsg}}</ng-container>
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header bg-danger text-white">
+          <h4 class="modal-title">ADDING </h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body ">
+        <form class="active my-4">
+            <input type="file" class="form-control  bordered" (change)="upload($event)" name="file"/>
+        </form>
+        <button  type="submit" (click)="addslider()" class="btn btn-success">ADD SLIDERS</button>
+        <p >{{amsg}}</p>
+    </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <table class="table table-bordered table-dark table-hover table-striped text-center">
+        <thead>
+            <tr>
+                <th>SNO</th>
+                <th>IMG</th>
+                <th>STATUS</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let img of gmsg;let i=index">
+                <td>{{i+1}}</td>
+                <td><img [src]="filepath+img.slider_image"  style="width: 100px;height: 100px;" /></td>
+                <td>
+                    <p class="text-success" *ngIf="img.slider_status==1">Active</p>
+                    <p class="text-danger"*ngIf="img.slider_status==0">Inactive</p>
+                </td>
+                <td>
+                    
+                    <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addto" (click)="edit(img.slider_id)">AD</button>
+                    <button type="submit" class="btn btn-danger" (click)="del(img.slider_id)">D</button>
+                </td>
+               
+            </tr>
+        </tbody>
+    </table>
+
+  </div>
+
+  <div class="modal" id="addto">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header bg-danger text-white">
+          <h4 class="modal-title">ADDING </h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body ">
+            
+        <form class="active my-4">
+
+            <input type="file" class="form-control  bordered" (change)="upload($event)" name="file"/>
+        </form>
+        <div>
+            <input type="text"class="form-control" [(ngModel)]="slider.uid"  name="uid" required />
+        </div>
+        <button  type="submit" (click)="updateslider()" class="btn btn-success">ADD SLIDERS</button>
+        <p >{{upd}}</p>
+        <select class="form-select"[(ngModel)]="slider.status"
+        name="slider">
+            <option value="1">Active</option>
+            <option value="0">Inactive</option>
+        
+          </select>
+          <br>
+    </div>
+      </div>
+    </div>
+  </div>
+
+<app-footer></app-footer>

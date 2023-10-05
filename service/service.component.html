@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+        <div class=" card col-md-3 col-sm-6 col-12 mb-3 mt-5  shadow-sm" *ngFor="let course of Allthe ; let i=index">
+            <img src="assets/images/{{course.img}}" height="300px" width="100%"/>
+            <h1 class="card-title">{{i+1}}Name:{{course.name}}</h1>
+            <p>{{course.dueration}}</p>
+                <p class="card-text">{{course.timings}}</p>
+                <div>
+                    <button type="button" class="btn btn-primary">Fee:{{course.fee}}</button>
+                  <button type="button" class="btn btn-danger m-2">Join:{{course.join}}</button>
+        
+                </div>
+                <button class="btn btn-danger" style="width: 100%" (click)="add(course)">Add To cart</button>
+                <button class="btn btn-primary" style="width: 100%" routerLink="/service/ucourses/:{{course.id}}">Readmore</button>
+                </div>       
+               
+
+</div>
+</div>
+<app-footer></app-footer>

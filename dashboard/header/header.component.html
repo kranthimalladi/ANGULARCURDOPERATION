@@ -1,0 +1,29 @@
+<!-- Grey with black text -->
+<nav class="navbar navbar-expand-sm bg-success navbar-light">
+    <div class="container">
+      
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/dashboard"><h1>{{email}}</h1></a>
+        </li>
+        <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+            <a class="nav-link active" routerLink="/dashboard">Home</a>
+          </li>
+       <li class="nav-item ">
+          <a class="nav-link" routerLink="/dashboard/slides">Slides</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard/service">service</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " routerLink="/dashboard/profile">profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " routerLink="/dashboard/sliders">sliders</a>
+        </li>
+      </ul>
+      <button type="submit" class="btn btn-danger ms-auto" (click)="logout()">LogOut</button>
+    </div>
+  </nav>
+  
+  
